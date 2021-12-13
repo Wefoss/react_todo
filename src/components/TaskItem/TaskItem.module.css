@@ -1,0 +1,7 @@
+.list_item {
+  background-color: #fff;
+  border: 2px solid lightslategray;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}

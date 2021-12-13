@@ -2,6 +2,22 @@
   text-align: center;
 }
 
+section {
+  max-width: 600px;
+  margin: 100px auto;
+}
+
+ul, p {
+  padding: 0px;
+  margin: 0px;
+}
+
+
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

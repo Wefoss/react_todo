@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import TaskList from "./components/TaskList";
+import useTodo from "./custom/useTodo";
+import FormTask from "./components/FormTask";
 
 function App() {
+  const { todoTask, setTodo, delTodo } = useTodo([
+    {
+      id: null,
+      task: "",
+      isDone: false,
+    },
+  ]);
+
+  const setFormTodo = (val, formikBag) => {
+    setTodo(val)
+  };
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="App">
+      <FormTask setTodo={setFormTodo} />
+      <TaskList delTask={delTodo} tasks={todoTask} />
+    </section>
   );
 }
 
