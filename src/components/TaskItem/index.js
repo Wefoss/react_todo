@@ -1,14 +1,26 @@
 import React from "react";
-import style from "./TaskItem.module.css";
+import styles from "./TaskItem.module.css";
+import CheckIcon from "@mui/icons-material/Check";
+import DeleteIcon from "@mui/icons-material/Delete";
+import cx from 'classname'
 
-const TaskItem = ({ task, isDone, delTask, id }) => {
+const TaskItem = ({ task, isDone, delTask, id, isChecked }) => {
+ 
+   const classNames = cx(styles.list_item, {
+     [styles.complite]: isDone
+   })
+
   return (
-    <li className={style.list_item}>
+    <li className={classNames}>
+      <p>{task}</p>
       <div>
-        <p>{task}</p>
-        <p>{isDone}</p>
+        <span onClick={() => isChecked(id)} className={styles.check_icon_wrap}>
+          <CheckIcon />
+        </span>
+        <button className={styles.btn} onClick={() => delTask(id)}>
+          <DeleteIcon className={styles.icon} />
+        </button>
       </div>
-      <button onClick={ () => delTask(id)}>delTask</button>
     </li>
   );
 };

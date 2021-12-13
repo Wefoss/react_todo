@@ -1,7 +1,41 @@
 .list_item {
-  background-color: #fff;
-  border: 2px solid lightslategray;
+  margin: 10px;
+  align-items: center;
   display: flex;
   justify-content: space-between;
+  background-color: #fff;
+}
+
+.list_item > div {
+  display: flex;
+}
+
+p {
   padding: 10px;
+}
+
+.icon {
+  color: #fff;
+}
+
+.btn {
+  border: none;
+  padding: 10px;
+  background-color: rgb(182, 97, 182);
+}
+
+.check_icon_wrap {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: lightskyblue;
+}
+
+.complite {
+  background-color: rgb(159, 162, 165);
+}
+
+.complite p {
+  text-decoration: line-through;
 }
