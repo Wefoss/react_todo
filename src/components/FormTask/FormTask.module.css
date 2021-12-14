@@ -1,71 +1,38 @@
 form {
   display: flex;
+  position: relative;
+  width: 60%;
 }
 
 .form_input,
 .form_btn {
   font-size: 1.2rem;
-
   outline: none;
   border: none;
 }
 .form_input {
-  width: 50%;
+  width: 80%;
   padding: 1rem;
+  background-color: rgb(239, 239, 239);
 }
 
 .form_btn {
   cursor: pointer;
+  background-color: #fff;
 }
 
 .form_btn svg {
   vertical-align: bottom;
 }
-
-select {
-  font-size: 1.2rem;
-  padding: 1rem;
-  margin-left: 2rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: none;
-  outline: none;
-  background-color: #fff;
-}
-
-.custom_select {
-  width: 100px;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-}
-
-.selec_wrap {
-  position: relative;
-  display: inherit;
-  margin-left: 20px;
-}
-
-.select_options {
-  position: absolute;
-  left: 0;
-  top: 100%;
-  border: 1px solid black;
+.form_btn svg path {
+  color: blueviolet;
   
-  }
-
-.select_options p {
-  padding: 5px;
-  background-color: #fff;
-  border-top: 1px solid lightgrey;
-  width: 9rem;
-  cursor: pointer;
 }
 
-.select_options p:hover {
+.error {
+  position: absolute;
+  bottom: -10%;
+  left: 25%;
+  border-radius: 5px;
   background-color: lightgrey;
 }
-

@@ -1,18 +1,14 @@
 .App {
   text-align: center;
-}
-
-section {
   max-width: 600px;
   margin: 100px auto;
+  padding: 10px;
 }
 
 ul, p {
   padding: 0px;
   margin: 0px;
 }
-
-
 li {
   text-decoration: none;
   list-style: none;

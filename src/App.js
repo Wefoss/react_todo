@@ -1,21 +1,34 @@
 import "./App.css";
+import React, { useState} from "react";
 import TaskList from "./components/TaskList";
 import useTodo from "./Hooks/useTodo";
-import FormTask from "./components/FormTask";
+import SelectFormBlock from "./components/SelectFormBlock";
+
 
 function App() {
-  const { todoTask, setTodo, delTodo, updateTodo } = useTodo([]);
+  const { todoTask, setTodo, delTodo, updateTodo, todoFilter } = useTodo([]);
+  const [select, setSelect] = useState("All");
 
   const setFormTodo = (val, formikBag) => {
     setTodo(val);
-    formikBag.resetForm()
-      };
+    formikBag.resetForm();
+  };
 
+  const setSelectHandler = (val) => {
+    setSelect(val);
+  };
+ 
   return (
     <section className="App">
-      <FormTask setTodo={setFormTodo} />
-      {!todoTask.length && <div style={{marginTop: '50px'}}>Add some Task</div>}
-      <TaskList delTask={delTodo} tasks={todoTask} isChecked={updateTodo} />
+      <SelectFormBlock setTodo={setFormTodo} selectSet={setSelectHandler} />
+      {!todoTask.length && (
+        <div>Add some Task</div>
+      )}
+      <TaskList
+        delTask={delTodo}
+        tasks={todoFilter(select)}
+        isChecked={updateTodo}
+      />
     </section>
   );
 }

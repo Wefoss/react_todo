@@ -3,8 +3,7 @@ import TaskItem from "../TaskItem";
 import styles from "./TaskList.module.css";
 
 const TaskList = ({ tasks, delTask, isChecked }) => {
-  console.log(tasks);
-  return (
+    return (
     <ul className={styles.lists}>
       {tasks.map((el) => {
         return (

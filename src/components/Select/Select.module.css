@@ -1,0 +1,53 @@
+.select {
+  display: flex;
+  width: 30%;
+}
+
+.custom_select {
+  width: 100%;
+  padding: 1.1rem;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+
+.selec_wrap {
+  position: relative;
+  display: inherit;
+  width: 100%;
+}
+
+.select_options {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.select_options p {
+  padding: 5px 5px 5px 15px;
+  text-align: left;
+  background-color: #fff;
+  border-top: 1px solid lightgrey;
+  cursor: pointer;
+}
+
+.select_options p:hover {
+  background-color: lightgrey;
+}
+
+.btn {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: blueviolet;
+}
+
+.btn svg {
+  vertical-align: bottom;
+}
+
+.btn svg path {
+  color: #fff;
+}
