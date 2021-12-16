@@ -1,7 +1,7 @@
 form {
   display: flex;
   position: relative;
-  width: 60%;
+  margin: 0.5rem;
 }
 
 .form_input,
@@ -26,7 +26,6 @@ form {
 }
 .form_btn svg path {
   color: blueviolet;
-  
 }
 
 .error {
@@ -35,4 +34,12 @@ form {
   left: 25%;
   border-radius: 5px;
   background-color: lightgrey;
+}
+
+.valid {
+  background-color: lightgreen;
+}
+
+.invalid {
+  background-color: lightpink;
 }

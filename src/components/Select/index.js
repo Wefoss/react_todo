@@ -1,24 +1,24 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import styles from "./Select.module.css";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import SelectedValue from "../../Context/SelectedValue";
 
-const Select = ({ selectSet }) => {
+const Select = () => {
   const options = ["All", "Produces", "Pending"];
   const [openSelect, setOpenSelect] = useState(false);
-  const [selectedValue, setSelectedValue] = useState("All");
   const isCurrentSelect = useRef();
+  const [select, setSelect] = useContext(SelectedValue);
+  
   const selectHandler = () => {
-    setOpenSelect(openSelect === true ? false : true);
+    setOpenSelect(openSelect ? false : true);
   };
 
   const selectValueHandler = ({ target }) => {
-    if (selectedValue !== target.textContent) {
-      setSelectedValue(target.textContent);
+    if (select !== target.textContent) {
       setOpenSelect(false);
-      selectSet(target.textContent);
+      setSelect(target.textContent);
     }
   };
-
 
   useEffect(() => {
     const closeHandler = ({ target }) => {
@@ -32,16 +32,20 @@ const Select = ({ selectSet }) => {
     };
   }, [isCurrentSelect, openSelect]);
 
+  const renderSelectItem = (el) => {
+    return (
+      <p onClick={selectValueHandler} key={el}>
+        {el}
+      </p>
+    );
+  };
+
   return (
     <section className={styles.select}>
       <div className={styles.selec_wrap}>
         {openSelect && (
           <div className={styles.select_options}>
-            {options.map((el) => (
-              <p onClick={selectValueHandler} key={el}>
-                {el}
-              </p>
-            ))}
+            {options.map(renderSelectItem)}
           </div>
         )}
         <div
@@ -49,10 +53,9 @@ const Select = ({ selectSet }) => {
           onClick={() => setOpenSelect(true)}
           className={styles.custom_select}
         >
-          {selectedValue}
+          {select}
         </div>
       </div>
-
       <button onClick={selectHandler} type="button" className={styles.btn}>
         <ArrowDropDownIcon />
       </button>

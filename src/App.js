@@ -1,29 +1,32 @@
 import "./App.css";
-import React, { useState} from "react";
+import React from "react";
 import TaskList from "./components/TaskList";
 import useTodo from "./Hooks/useTodo";
 import SelectFormBlock from "./components/SelectFormBlock";
-
+import SelectedValue from "./Context/SelectedValue.js";
 
 function App() {
-  const { todoTask, setTodo, delTodo, updateTodo, todoFilter } = useTodo([]);
-  const [select, setSelect] = useState("All");
+  const {
+    select,
+    setSelect,
+    todoTask,
+    setTodo,
+    delTodo,
+    updateTodo,
+    todoFilter,
+  } = useTodo([]);
 
   const setFormTodo = (val, formikBag) => {
     setTodo(val);
     formikBag.resetForm();
   };
 
-  const setSelectHandler = (val) => {
-    setSelect(val);
-  };
- 
   return (
     <section className="App">
-      <SelectFormBlock setTodo={setFormTodo} selectSet={setSelectHandler} />
-      {!todoTask.length && (
-        <div>Add some Task</div>
-      )}
+      <SelectedValue.Provider value={[select, setSelect]}>
+        <SelectFormBlock setTodo={setFormTodo} />
+      </SelectedValue.Provider>
+      {!todoTask.length && <div>Add some Task</div>}
       <TaskList
         delTask={delTodo}
         tasks={todoFilter(select)}

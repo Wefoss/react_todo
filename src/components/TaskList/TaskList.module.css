@@ -1,5 +1,7 @@
 .lists {
-  width: 70%;
-  margin: 0 auto;
+  max-width: 30rem;
+  margin: 5.5rem auto;
   height: 500px;
-  }
+}
+
+

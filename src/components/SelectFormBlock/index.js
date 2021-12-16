@@ -3,12 +3,12 @@ import styles from './SelectFormBlock.module.css'
 import Select from '../Select';
 import FormTask from '../FormTask';
 
-const SelectFormBlock = ({setTodo, todoFilter, selectSet}) => {
+const SelectFormBlock = ({setTodo, todoFilter }) => {
     
     return (
         <div className={styles.container}>
             <FormTask setTodo={setTodo} />
-            <Select  selectSet={selectSet} />
+            <Select   />
         </div>
     );
 }

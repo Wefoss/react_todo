@@ -2,8 +2,11 @@ import { useState} from "react";
 
 const useTodo = (initValue) => {
   const [todoTask, setTodoTask] = useState(initValue);
+  const [select, setSelect] = useState("All");
 
   return {
+    select,
+    setSelect,
     todoTask,
     setTodo: (value) => {
       const newTask = {
