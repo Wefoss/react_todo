@@ -4,7 +4,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import SelectedValue from "../../Context/SelectedValue";
 
 const Select = () => {
-  const options = ["All", "Produces", "Pending"];
+  const options = ["All", "Completed", "Pending"];
   const [openSelect, setOpenSelect] = useState(false);
   const isCurrentSelect = useRef();
   const [select, setSelect] = useContext(SelectedValue);

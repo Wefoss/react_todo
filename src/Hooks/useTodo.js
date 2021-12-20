@@ -32,10 +32,10 @@ const useTodo = (initValue) => {
       switch (val) {
         case "All":
           return todoTask;
-        case "Produces":
-          return todoTask.filter((el) => !el.isDone);
-        case "Pending":
+        case "Completed":
           return todoTask.filter((el) => el.isDone);
+        case "Pending":
+          return todoTask.filter((el) => !el.isDone);
         default:
           return todoTask;
           
